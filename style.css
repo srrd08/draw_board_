@@ -8,6 +8,12 @@ body {
    padding: 0;
 }
 
+.open-board {
+   height: 100vh;
+   width: 100vw;
+   position: absolute;
+}
+
 .option-cont {
    position: absolute;
    top: 3rem;
@@ -68,8 +74,8 @@ body {
    width: 9rem;
    background-color: rgb(218, 211, 211);
    position: absolute;
-   top: 6.05rem;
-   left: 28rem;
+   top: 3.1rem;
+   left: -4rem;
    display: none;
    flex-direction: column;
    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
@@ -113,8 +119,8 @@ body {
       width: 9rem;
       background-color: rgb(218, 211, 211);
       position: absolute;
-      top: 6.05rem;
-      left: 41rem;
+      top: 3.1rem;
+      left: -3.3rem;
       display: none;
       justify-content: center;
       align-items: center;
@@ -130,18 +136,18 @@ body {
    }
 }
 
-.pencil {
+.pencil > i {
    transition: all .2s ease-in-out;
 }
 
-.eraser {
+.eraser > i {
    transition: all .2s ease-in-out;
 }
 
-.pencil:hover {
-   transform: rotate(10deg);
+.pencil > i:hover {
+   transform: rotate(15deg);
 }
 
-.eraser:hover {
+.eraser > i:hover {
    transform: scale(1.1);
 }
