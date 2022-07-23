@@ -5,6 +5,8 @@ let eraserCont = document.querySelector(".eraser-option-cont");
 let pencil = document.querySelector(".pencil");
 let eraser = document.querySelector(".eraser");
 
+let noteTool = document.querySelector(".note");
+
 let optionContFlag = true;
 let pencilContFlag = false;
 let eraserContFlag = false;
@@ -68,4 +70,75 @@ function showEraserOptionCont() {
 
 function hideEraserOptionCont() {
 	eraserCont.style.display = "none";
+}
+
+noteTool.addEventListener("click", (e) => {
+	let noteCont = document.createElement("div");
+	noteCont.setAttribute("class", "note-cont");
+	noteCont.innerHTML = `
+	<div class="note-header">
+	<div class="button minimize"></div>
+	<div class="button close"></div>
+</div>
+<div class="note-body">
+	<textarea spellcheck="none" style="resize: none"></textarea>
+</div>`;
+
+	document.body.appendChild(noteCont);
+
+	let noteMinimize = noteCont.querySelector(".minimize");
+	let noteClose = noteCont.querySelector(".close");
+	// console.log(noteClose);
+	noteActions(noteMinimize, noteClose, noteCont);
+
+	noteCont.onmousedown = function (event) {
+		dragAndDrop(noteCont, event);
+	};
+
+	noteCont.ondragstart = function () {
+		return false;
+	};
+});
+
+// noteMinimize.addEventListener("click", (e) => {});
+function dragAndDrop(element, event) {
+	let shiftX = event.clientX - element.getBoundingClientRect().left;
+	let shiftY = event.clientY - element.getBoundingClientRect().top;
+
+	element.style.position = "absolute";
+	element.style.zIndex = 1000;
+
+	moveAt(event.pageX, event.pageY);
+
+	// moves the ball at (pageX, pageY) coordinates
+	// taking initial shifts into account
+	function moveAt(pageX, pageY) {
+		element.style.left = pageX - shiftX + "px";
+		element.style.top = pageY - shiftY + "px";
+	}
+
+	function onMouseMove(event) {
+		moveAt(event.pageX, event.pageY);
+	}
+
+	// move the ball on mousemove
+	document.addEventListener("mousemove", onMouseMove);
+
+	// drop the ball, remove unneeded handlers
+	element.onmouseup = function () {
+		document.removeEventListener("mousemove", onMouseMove);
+		element.onmouseup = null;
+	};
+}
+
+function noteActions(minimize, remove, stickyCont) {
+	remove.addEventListener("click", (e) => {
+		stickyCont.remove();
+	});
+	minimize.addEventListener("click", (e) => {
+		let noteCont = stickyCont.querySelector(".note-body");
+		let display = getComputedStyle(noteCont).getPropertyValue("display");
+		if (display === "none") noteCont.style.display = "flex";
+		else noteCont.style.display = "none";
+	});
 }

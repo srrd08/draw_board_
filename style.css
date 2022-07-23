@@ -8,11 +8,7 @@ body {
    padding: 0;
 }
 
-.open-board {
-   height: 100vh;
-   width: 100vw;
-   position: absolute;
-}
+
 
 .option-cont {
    position: absolute;
@@ -54,7 +50,7 @@ body {
    height: 3rem;
    width: 60vw;
    background-color: rgb(218, 211, 211);
-   position: absolute;
+   position: relative;
    top: 3rem;
    left: calc((100% - 60vw)/2);
    display: flex;
@@ -66,7 +62,7 @@ body {
 
 .tool {
    position: relative;
-   left: 55px;
+   /* left: 55px; */
 }
 
 .pencil-option-cont {
@@ -77,11 +73,15 @@ body {
    top: 3.1rem;
    left: -4rem;
    display: none;
+   justify-content: center;
    flex-direction: column;
    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 .pencil-width {
+   display: flex;
+   align-items: center;
+   justify-content: center;
    position: relative;
    top: .4rem;
 }
@@ -127,27 +127,89 @@ body {
       box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
-@keyframes toolIconAnimation {
-   0% {
-      transform: scale(1);
-   }
-   100% {
-      transform: scale(1.1);
-   }
-}
 
+/* 
 .pencil > i {
    transition: all .2s ease-in-out;
-}
+} */
 
-.eraser > i {
+.tool > i {
    transition: all .2s ease-in-out;
 }
 
 .pencil > i:hover {
-   transform: rotate(15deg);
+   transform:  scale(.9);
 }
 
 .eraser > i:hover {
    transform: scale(1.1);
+}
+
+.download > i:hover {
+   transform: translateY(5px);
+}
+
+.upload > i:hover {
+   transform: translateY(-5px);
+}
+
+.undo > i:hover {
+   transform: rotate(-40deg);
+}
+
+.redo > i:hover {
+   transform: rotate(40deg);
+}
+
+.note > i:hover {
+   transform: translateX(3px) translateY(3px);
+}
+
+.note-cont {
+   width: 10rem;
+   /* background-color: cadetblue; */
+   position: absolute;
+   top: 30rem;
+   left: 10rem;
+   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+
+}
+
+.note-header {
+   background-color: #666 ;
+   height: 20px;
+   width: 100%;
+   border-radius: 5px 5px 0px 0px ;
+   display: flex;
+   justify-content: flex-end;
+   gap: 5px;
+   align-items: center;
+}
+
+.note-header > * {
+   height: 12px;
+   width: 12px;
+   /* background-color: cadetblue; */
+   margin-right: 6px;
+   border-radius: 50%;
+}
+
+.note-body {
+   background-color: rgb(212, 206, 206);
+   height: 10rem;
+   width: 100%;
+   border-radius: 0px 0px 5px 5px;
+}
+
+.note-body > * {
+   height: 100%;
+   width: 100%;
+}
+
+.minimize {
+   background-color: #b3da33;
+}
+
+.close {
+   background-color: rgb(204, 42, 42);
 }
