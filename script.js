@@ -3,8 +3,9 @@ let toolCont = document.querySelector(".tool-cont");
 let pencilCont = document.querySelector(".pencil-option-cont");
 let eraserCont = document.querySelector(".eraser-option-cont");
 let pencil = document.querySelector(".pencil");
-let eraser = document.querySelector(".eraser");
-
+let eraser = document.querySelector(".eraser i");
+let upload = document.querySelector(".upload");
+let download = document.querySelector(".download i");
 let noteTool = document.querySelector(".note");
 
 let optionContFlag = true;
@@ -142,3 +143,42 @@ function noteActions(minimize, remove, stickyCont) {
 		else noteCont.style.display = "none";
 	});
 }
+
+upload.addEventListener("click", (e) => {
+	// Open file explorer
+	let input = document.createElement("input");
+	input.setAttribute("type", "file");
+	input.click();
+
+	input.addEventListener("change", (e) => {
+		let file = input.files[0];
+		let url = URL.createObjectURL(file);
+
+		let stickyCont = document.createElement("div");
+		stickyCont.setAttribute("class", "note-cont");
+		stickyCont.innerHTML = `
+		<div class="note-header">
+			<div class="button minimize"></div>
+			<div class="button close"></div>
+		</div>
+		<div class="note-body">
+			<img src="${url}"/>
+		</div>`;
+
+		document.body.appendChild(stickyCont);
+
+		let minimize = stickyCont.querySelector(".minimize");
+		let remove = stickyCont.querySelector(".close");
+		noteActions(minimize, remove, stickyCont);
+
+		stickyCont.onmousedown = function (e) {
+			dragAndDrop(stickyCont, e);
+		};
+
+		stickyCont.ondragstart = function () {
+			return false;
+		};
+	});
+});
+
+

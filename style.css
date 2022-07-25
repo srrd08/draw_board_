@@ -6,6 +6,7 @@
 body {
    margin: 0;
    padding: 0;
+   background-color: white;
 }
 
 
@@ -212,4 +213,9 @@ body {
 
 .close {
    background-color: rgb(204, 42, 42);
+}
+
+img {
+   height: 100%;
+   width: 100%;
 }

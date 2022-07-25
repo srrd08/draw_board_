@@ -6,7 +6,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Open-Board</title>
 		<link rel="stylesheet" href="style.css" />
-		<script src="./script.js" defer></script>
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -14,11 +13,13 @@
 			crossorigin="anonymous"
 			referrerpolicy="no-referrer"
 		/>
+		<script src="./script.js" defer></script>
+		<script src="./canvas.js" defer></script>
 	</head>
 	<body>
 		<div class="open-board">
 			<div class="option-cont">
-				<i class="fa-solid fa-bars"></i>
+				<i class="fa-solid fa-xmark"></i>
 			</div>
 			<div class="tool-cont">
 				<div class="tool pencil">
@@ -38,7 +39,7 @@
 					<i class="fa-solid fa-eraser fa-3x"></i>
 					<div class="eraser-option-cont">
 						<div class="eraser-width">
-							<input type="range" min="3" max="10" value="5" />
+							<input type="range" min="10" max="50" value="20" />
 						</div>
 					</div>
 				</div>
@@ -59,5 +60,7 @@
 				</div>
 			</div>
 		</div>
+
+		<canvas></canvas>
 	</body>
 </html>
