@@ -1,5 +1,7 @@
 * {
    box-sizing: border-box;
+   padding: 0px;
+   margin: 0px;
 }
 
 
@@ -51,7 +53,7 @@ body {
    height: 3rem;
    width: 60vw;
    background-color: rgb(218, 211, 211);
-   position: relative;
+   position: absolute;
    top: 3rem;
    left: calc((100% - 60vw)/2);
    display: flex;

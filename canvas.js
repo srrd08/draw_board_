@@ -1,6 +1,7 @@
 let canvas = document.querySelector("canvas");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.width = window.innerWidth - 17;
+canvas.height = window.innerHeight - 52;
+// draw(canvas);
 
 let pencilColor = document.querySelectorAll(".color");
 let pencilWidthElem = document.querySelector(".pencil-width input");
@@ -26,6 +27,10 @@ tool.fillRect(0, 0, canvas.width, canvas.height);
 tool.strokeStyle = penColor;
 tool.lineWidth = penWidth;
 undoRedoTracker[++track] = canvas.toDataURL();
+
+
+
+
 
 // mousedown = start new path , mousemove = fill path
 canvas.addEventListener("mousedown", (e) => {
