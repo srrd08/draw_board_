@@ -49,7 +49,7 @@ canvas.addEventListener("mousemove", (e) => {
 	let data = {
 		x: e.clientX,
 		y: e.clientY,
-		color: eraserContFlag ? eraserContFlag : penColor,
+		color: eraserContFlag ? eraserColor : penColor,
 		width: eraserContFlag ? eraserWidth : penWidth,
 	};
 	// if (mouseDown) drawStroke(data);
