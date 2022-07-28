@@ -5,6 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Open-Board</title>
+		<!-- CSS -->
 		<link rel="stylesheet" href="style.css" />
 		<link
 			rel="stylesheet"
@@ -13,8 +14,10 @@
 			crossorigin="anonymous"
 			referrerpolicy="no-referrer"
 		/>
-		<script src="./script.js" defer></script>
-		<script src="./canvas.js" defer></script>
+		<!-- /CSS -->
+		<!-- Scripts -->
+
+		<!-- / Scripts -->
 	</head>
 	<body>
 		<div class="open-board">
@@ -62,5 +65,17 @@
 		</div>
 
 		<canvas></canvas>
+
+		<script
+			src="https://cdn.socket.io/4.5.0/socket.io.min.js"
+			integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
+			crossorigin="anonymous"
+		></script>
+
+		<script>
+			let socket = io.connect("http://localhost:3000");
+		</script>
+		<script src="./script.js"></script>
+		<script src="./canvas.js"></script>
 	</body>
 </html>
