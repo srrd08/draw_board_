@@ -1,8 +1,8 @@
 let canvas = document.querySelector("canvas");
 // canvas.width = window.innerWidth - 17;
 // canvas.height = window.innerHeight - 52;
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.width = window.innerWidth-10;
+canvas.height = window.innerHeight-10;
 // draw(canvas);
 
 let pencilColor = document.querySelectorAll(".color");
